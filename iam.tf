@@ -37,7 +37,6 @@ resource "aws_iam_role_policy" "mlflow_policy" {
       },
       {       
         "Action": [
-            "sagemaker-mlflow:*",
             "sagemaker:CreateMlflowTrackingServer",
             "sagemaker:UpdateMlflowTrackingServer",
             "sagemaker:DeleteMlflowTrackingServer",

@@ -1,8 +1,8 @@
 resource "aws_sagemaker_domain" "mlflow_domain" {
   domain_name = "mlflow_domain"
   auth_mode   = "IAM"
-  vpc_id      = aws_vpc.mlflow_vpc.id
-  subnet_ids  = [aws_subnet.mlflow_subnet.id]
+  vpc_id      = var.vpc
+  subnet_ids  = var.subnet
 
   default_user_settings {
     execution_role = aws_iam_role.mlflow_example.arn
