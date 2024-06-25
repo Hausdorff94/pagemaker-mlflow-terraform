@@ -1,6 +1,7 @@
 resource "aws_iam_role" "mlflow_role" {
   name = "mlflow_role_name"
 
+
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
@@ -16,43 +17,47 @@ resource "aws_iam_role" "mlflow_role" {
 }
 
 resource "aws_iam_role_policy" "mlflow_policy" {
-  name   = "mlflow_policy"
-  role   = aws_iam_role.mlflow_role.id
+  name = "mlflow_policy"
+  role = aws_iam_role.mlflow_role.id
   policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {
+        "Sid" : "GeneralAWSActions",
         Action = [
-            "s3:Get*",
-            "s3:Put*",
-            "s3:List*",
-            "sagemaker:AddTags",
-            "sagemaker:CreateModelPackageGroup",
-            "sagemaker:CreateModelPackage",
-            "sagemaker:UpdateModelPackage",
-            "sagemaker:DescribeModelPackageGroup"
+          "s3:Get*",
+          "s3:Put*",
+          "s3:List*",
+          "sagemaker:AddTags",
+          "sagemaker:CreateApp",
+          "sagemaker:CreateModelPackageGroup",
+          "sagemaker:CreateModelPackage",
+          "sagemaker:UpdateModelPackage",
+          "sagemaker:DescribeModelPackageGroup"
         ]
         Effect   = "Allow"
         Resource = "*"
       },
-      {       
-        "Action": [
-            "sagemaker:CreateMlflowTrackingServer",
-            "sagemaker:UpdateMlflowTrackingServer",
-            "sagemaker:DeleteMlflowTrackingServer",
-            "sagemaker:StartMlflowTrackingServer",
-            "sagemaker:StopMlflowTrackingServer",
-            "sagemaker:CreatePresignedMlflowTrackingServerUrl"
+      {
+        "Sid" : "MlflowTrackingServerActions",
+        "Action" : [
+          "sagemaker:CreateMlflowTrackingServer",
+          "sagemaker:UpdateMlflowTrackingServer",
+          "sagemaker:DeleteMlflowTrackingServer",
+          "sagemaker:StartMlflowTrackingServer",
+          "sagemaker:StopMlflowTrackingServer",
+          "sagemaker:CreatePresignedMlflowTrackingServerUrl"
         ],
-        "Effect": "Allow",         
-        "Resource": "*"   
+        "Effect" : "Allow",
+        "Resource" : "*"
       },
       {
-        "Action": [
-            "sagemaker-mlflow:*"
+        "Sid" : "MlflowActions",
+        "Action" : [
+          "sagemaker-mlflow:*"
         ],
-        "Effect": "Allow",
-        "Resource": "*"
+        "Effect" : "Allow",
+        "Resource" : "*"
       }
     ]
   })
