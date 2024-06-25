@@ -6,13 +6,13 @@ variable "vpc" {
 }
 
 variable "subnet" {
-    description = "Subnets IDs"
-    type = list(string)
-    default = ["subnet-75bda838"]
+  description = "Subnets IDs"
+  type        = list(string)
+  default     = ["subnet-75bda838"]
 }
 
 variable "region" {
-    description = "AWS Region"
-    type = string
-    default = "us-east-1"
+  description = "AWS Region"
+  type        = string
+  default     = "us-east-1"
 }

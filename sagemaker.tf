@@ -1,5 +1,5 @@
 resource "aws_sagemaker_domain" "mlflow_domain" {
-  domain_name = "mlflow_domain"
+  domain_name = "mlflow-domain"
   auth_mode   = "IAM"
   vpc_id      = var.vpc
   subnet_ids  = var.subnet
