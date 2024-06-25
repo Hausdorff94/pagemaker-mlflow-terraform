@@ -14,11 +14,11 @@ resource "aws_sagemaker_app" "mlflow_app" {
   user_profile_name = aws_sagemaker_user_profile.mlflow_user.user_profile_name
   app_name          = "mlflow_app"
   app_type          = "JupyterServer"
-  depends_on = [ aws_sagemaker_domain.mlflow_domain ]
+  depends_on        = [aws_sagemaker_domain.mlflow_domain]
 }
 
 resource "aws_sagemaker_user_profile" "mlflow_user" {
   domain_id         = aws_sagemaker_domain.mlflow_domain.id
   user_profile_name = "mlflow_user"
-  depends_on = [ aws_sagemaker_app.mlflow_app ]
+  depends_on        = [aws_sagemaker_app.mlflow_app]
 }
