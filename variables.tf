@@ -16,3 +16,21 @@ variable "region" {
   type        = string
   default     = "us-east-1"
 }
+
+variable "mlflow_user" {
+  description = "MLflow User Profile Name"
+  type        = string
+  default     = "mlflow-user"
+}
+
+variable "app_name" {
+  description = "SageMaker App Name"
+  type        = string
+  default     = "mlflow-app"
+}
+
+variable "app_type" {
+  description = "SageMaker App Type"
+  type        = string
+  default     = "JupyterServer"
+}

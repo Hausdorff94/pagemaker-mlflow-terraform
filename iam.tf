@@ -29,6 +29,7 @@ resource "aws_iam_role_policy" "mlflow_policy" {
           "s3:Put*",
           "s3:List*",
           "sagemaker:AddTags",
+          "sagemaker:CreateApp",
           "sagemaker:CreateModelPackageGroup",
           "sagemaker:CreateModelPackage",
           "sagemaker:UpdateModelPackage",
