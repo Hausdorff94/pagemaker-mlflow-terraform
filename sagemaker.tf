@@ -1,13 +1,13 @@
-# resource "aws_sagemaker_domain" "mlflow_domain" {
-#   domain_name = "mlflow_domain"
-#   auth_mode   = "IAM"
-#   vpc_id      = var.vpc
-#   subnet_ids  = var.subnet
+resource "aws_sagemaker_domain" "mlflow_domain" {
+  domain_name = "mlflow_domain"
+  auth_mode   = "IAM"
+  vpc_id      = var.vpc
+  subnet_ids  = var.subnet
 
-#   default_user_settings {
-#     execution_role = aws_iam_role.mlflow_role.arn
-#   }
-# }
+  default_user_settings {
+    execution_role = aws_iam_role.mlflow_role.arn
+  }
+}
 
 # resource "aws_sagemaker_app" "mlflow_app" {
 #   domain_id         = aws_sagemaker_domain.mlflow_domain.id

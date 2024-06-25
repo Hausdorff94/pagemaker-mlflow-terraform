@@ -23,6 +23,7 @@ resource "aws_iam_role_policy" "mlflow_policy" {
     Version = "2012-10-17"
     Statement = [
       {
+        "Sid" : "GeneralAWSActions",
         Action = [
           "s3:Get*",
           "s3:Put*",
@@ -37,6 +38,7 @@ resource "aws_iam_role_policy" "mlflow_policy" {
         Resource = "*"
       },
       {
+        "Sid" : "MlflowTrackingServerActions",
         "Action" : [
           "sagemaker:CreateMlflowTrackingServer",
           "sagemaker:UpdateMlflowTrackingServer",
@@ -49,6 +51,7 @@ resource "aws_iam_role_policy" "mlflow_policy" {
         "Resource" : "*"
       },
       {
+        "Sid" : "MlflowActions",
         "Action" : [
           "sagemaker-mlflow:*"
         ],

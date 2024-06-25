@@ -1,14 +1,14 @@
 variable "vpc" {
-  description = "The VPC ID"
+  description = "VPC ID"
   type        = string
-  default     = "value"
+  default     = "vpc-bd8716c0"
 
 }
 
 variable "subnet" {
-    description = "The subnet ID"
+    description = "Subnets IDs"
     type = list(string)
-    default = ["value"]
+    default = ["subnet-75bda838"]
 }
 
 variable "region" {
